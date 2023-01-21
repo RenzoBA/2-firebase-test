@@ -1,4 +1,7 @@
-import './globals.css'
+import "./globals.css";
+import ContextProvider from "./context-provider";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function RootLayout({ children }) {
   return (
@@ -8,7 +11,13 @@ export default function RootLayout({ children }) {
         head.jsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body className="h-screen">
+        <ContextProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ContextProvider>
+      </body>
     </html>
-  )
+  );
 }
